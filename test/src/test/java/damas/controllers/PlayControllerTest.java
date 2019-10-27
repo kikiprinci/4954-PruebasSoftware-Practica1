@@ -62,8 +62,22 @@ public class PlayControllerTest {
     }
 
     public void givenPlayControllerWhenPieceConvertToLadyThenNotError() {
-
+        Session session = new Session();
+        Coordinate originBlack = new Coordinate(7, 2);
+        Coordinate targetBlack = new Coordinate(8, 3);
+        PlayController playController = new PlayController(session);
+        assertNull(playController.move(originBlack, targetBlack));
     }
+
+
+    public void givenPlayControllerWhenLadyToAnyPlaceThenNotError() {
+        Session session = new Session();
+        Coordinate originBlack = new Coordinate(8, 3);
+        Coordinate targetBlack = new Coordinate(4, 7);
+        PlayController playController = new PlayController(session);
+        assertNull(playController.move(originBlack, targetBlack));
+    }
+
 
     public void givenPlayControllerWhenColorNotHasMovementsThenNotError() {
 
