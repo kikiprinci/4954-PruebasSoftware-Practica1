@@ -1,10 +1,12 @@
 package damas.controllers;
 
+import damas.models.Session;
+
 public abstract class Controller {
 
-    public Controller(Example example) {
-        this.example = example;
-    }
+    protected Session session;
 
-    public abstract void accept(ControllersVisitor controllersVisitor);
+    public Controller(Session session) {
+        this.session = session;
+    }
 }
