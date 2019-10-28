@@ -58,7 +58,13 @@ public class PlayControllerTest {
 
 
     public void givenPlayControllerWhenPieceEatAnotherThenNotError() {
-
+        Session session = new Session();
+        Coordinate originBlack = new Coordinate(2, 1);
+        Coordinate targetBlack = new Coordinate(4, 5);
+        Coordinate whitePiece = new Coordinate(4, 5);
+        PlayController playController = new PlayController(session);
+        assertNull(playController.move(originBlack, targetBlack));
+        assertNull(session.getPiece(whitePiece));
     }
 
     public void givenPlayControllerWhenPieceConvertToLadyThenNotError() {
@@ -80,7 +86,13 @@ public class PlayControllerTest {
 
 
     public void givenPlayControllerWhenColorNotHasMovementsThenNotError() {
-
+        Session session = new Session();
+        Coordinate originBlack = new Coordinate(7, 2);
+        Coordinate whitePiece = new Coordinate(7, 1);
+        PlayController playController = new PlayController(session);
+        assertNull(session.getPiece(originBlack));
+        assertNull(session.getPiece(whitePiece));
+        assertNull(playController.move(originBlack, targetBlack));
     }
 
 }
